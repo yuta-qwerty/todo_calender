@@ -24,21 +24,8 @@ init_db()
 def evaluate_importance_ai(title, description):
     """
     タスクの重要度を判定するAI用関数。
-    ※ 現在はAIではなく単語で判定しているが、将来的にGemini APIなどの実際のLLM APIに置き換える予定。
     """
-    text = (title + " " + description).lower()
-    high_keywords = ['緊急', '至急', '締め切り', '締切', '重要', '会議', '提出', 'テスト']
-    medium_keywords = ['勉強', '確認', '準備', '復習']
     
-    for kw in high_keywords:
-        if kw in text:
-            return 'High'
-            
-    for kw in medium_keywords:
-        if kw in text:
-            return 'Medium'
-            
-    return 'Low'
 
 @app.route('/')
 def index():
